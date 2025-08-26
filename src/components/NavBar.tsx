@@ -4,7 +4,7 @@ import AddIcon from '../../assets/nav/add_circle.svg';
 import EventIcon from '../../assets/nav/event.svg';
 import ForumIcon from '../../assets/nav/forum.svg';
 import HomeIcon from '../../assets/nav/home.svg';
-import LoginIcon from '../../assets/nav/login.svg';
+import MoreIcon from '../../assets/nav/more.svg';
 
 type NavBarProps = {
   lugar: string;
@@ -15,10 +15,10 @@ export default function NavBar({ lugar }: NavBarProps) {
 
   const navItems = [
     { icon: HomeIcon, name: "home", onPress: () => router.push("/") },//home
-    { icon: ForumIcon, name: "forum", onPress: () => router.push("/chatScreen") },//tela de chat (Work In Progress)
-    { icon: AddIcon, name: "add", onPress: () => router.push("/addTasks") },//criar tarefas
-    { icon: EventIcon, name: "event", onPress: () => console.log("event") },
-    { icon: LoginIcon, name: "login", onPress: () => console.log("login") },
+    { icon: ForumIcon, name: "forum", onPress: () => router.push("/chatScreen") },
+    { icon: AddIcon, name: "add", onPress: () => router.push("/addTasks") },
+    { icon: EventIcon, name: "event", onPress: () => router.push("/calendarScreen") },
+    { icon: MoreIcon, name: "more", onPress: () => router.push("/moreOptionsScreen") },
   ];
 
   return (

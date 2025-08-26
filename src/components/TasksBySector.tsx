@@ -123,7 +123,7 @@ export default function TasksBySetor() {
   };
 
   return (
-    <View className="flex-1 gap-4 border-b border-b-white p-3">
+    <View className="flex-1 gap-4 p-3">
       {setores.map((setor) => (
         <View key={setor.nome}>
           <TouchableOpacity
@@ -146,7 +146,7 @@ export default function TasksBySetor() {
           <Collapsible collapsed={!abrirSetor[setor.nome]}>
             <View className="mt-5 pl-2 border-b border-cinza-claro">
               {setor.tarefas.length === 0 ? (
-                <Text>Não há tarefas pendentes neste setor</Text>
+                <Text className="pb-2">Não há tarefas pendentes neste setor</Text>
               ) : (
                 setor.tarefas.map((tarefa) => {
                   const id = `${setor.nome}-${tarefa.titulo}`;

@@ -23,7 +23,7 @@ export default function chatScreen() {
         <ScrollView>
           <WipScreen />
         </ScrollView>
-        <NavBar lugar="forum" />
+        <NavBar lugar="event" />
       </View>
     </SafeAreaView>
   );

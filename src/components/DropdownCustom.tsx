@@ -27,7 +27,7 @@ export default function DropdownCustom({
         {label}
       </Text>
       <Dropdown
-        style={[tw`border-2 px-2 rounded-lg h-12`, { borderColor: '#003B71' }]}
+        style={[tw`border-2 px-4 rounded-3xl h-12`, { borderColor: '#003B71' }]}
         placeholderStyle={tw`text-sm text-neutral-600`}
         selectedTextStyle={[tw`text-sm`, { lineHeight: 20 }]}
         containerStyle={[tw`border-2 rounded-lg`, { borderColor: '#003B71' }]}

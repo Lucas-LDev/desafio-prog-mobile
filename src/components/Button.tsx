@@ -8,7 +8,7 @@ type Props = {
 export default function Button({ label, onPress }: Props) {
   return (
     <TouchableOpacity
-      className="w-full px-2.5 rounded-lg h-14 flex items-center mt-6 justify-center bg-azul-escuro"
+      className="w-full rounded-3xl h-14 flex items-center mt-6 justify-center bg-azul-escuro"
       onPress={onPress}
     >
       <Text className="text-lg font-semibold text-branco">{label}</Text>

@@ -6,7 +6,7 @@ import {
   ScrollView,
 } from 'react-native';
 import { useState } from 'react';
-import AgendaIcon from '../../assets/icons/agenda.svg';
+import CreateTaskIcon from '../../assets/icons/createTask.svg';
 import DropdownCustom from './DropdownCustom';
 import InputCustom from './InputCustom';
 import Button from './Button';
@@ -41,11 +41,11 @@ export default function CreateTaskForm() {
       keyboardVerticalOffset={Platform.OS === 'ios' ? 0 : 150}
     >
       <ScrollView keyboardShouldPersistTaps="handled">
-        <View className="flex-1 pt-1 bg-azul-escuro">
-          <View className="bg-branco flex-1 gap-3 rounded-t-2xl p-7">
+        <View className="flex-1 bg-azul-escuro">
+          <View className="bg-branco flex-1 gap-3 rounded-t-2xl p-7 mt-4">
             <View className="flex-row items-center gap-4">
               <Text className="font-semibold text-xl">Criar tarefa</Text>
-              <AgendaIcon height={24} width={24} />
+              <CreateTaskIcon height={24} width={24} />
             </View>
 
             <View className="flex-col gap-5 w-full">

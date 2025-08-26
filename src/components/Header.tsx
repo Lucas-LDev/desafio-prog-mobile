@@ -10,7 +10,7 @@ type Props = {
 const renderVariante = (variante?: string) => {
   if (variante === 'pesquisa') {
     return (
-      <View className="flex-row items-center border border-white px-4 rounded-3xl h-[44px] bg-azul-escuro">
+      <View className="flex-row items-center border border-white px-4 rounded-3xl h-[44px] mb-1 bg-azul-escuro">
         <TextInput
           placeholder="Pesquise tarefas aqui..."
           className="flex-1 text-branco placeholder:text-branco/80 placeholder:"
