@@ -17,7 +17,7 @@ export default function NavBar({ lugar }: NavBarProps) {
     { icon: HomeIcon, name: "home", onPress: () => router.push("/") },//home
     { icon: ForumIcon, name: "forum", onPress: () => router.push("/chatScreen") },//tela de chat (Work In Progress)
     { icon: AddIcon, name: "add", onPress: () => router.push("/addTasks") },//criar tarefas
-    { icon: EventIcon, name: "event", onPress: () => console.log("event") },
+    { icon: EventIcon, name: "event", onPress: () => router.push("/calendarScreen") },
     { icon: LoginIcon, name: "login", onPress: () => console.log("login") },
   ];
 
