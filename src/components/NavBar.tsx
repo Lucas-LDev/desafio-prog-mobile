@@ -14,7 +14,7 @@ export default function NavBar({ lugar }: NavBarProps) {
   const router = useRouter();
 
   const navItems = [
-    { icon: HomeIcon, name: "home", onPress: () => router.push("/") },//home
+    { icon: HomeIcon, name: "home", onPress: () => router.push("/home") },//home
     { icon: ForumIcon, name: "forum", onPress: () => router.push("/chatScreen") },
     { icon: AddIcon, name: "add", onPress: () => router.push("/addTasks") },
     { icon: EventIcon, name: "event", onPress: () => router.push("/calendarScreen") },

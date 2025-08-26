@@ -11,7 +11,7 @@ export default function WipScreen() {
       <View className="bg-branco flex-1 gap-3 rounded-t-2xl p-7 mt-4">
         <TouchableOpacity
           className="w-[24px] h-[24px]"
-          onPress={() => router.push('/')}
+          onPress={() => router.push('/home')}
         >
           <BackIcon className="top-5 left-5" height={24} width={24} />
         </TouchableOpacity>
