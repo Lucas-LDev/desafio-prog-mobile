@@ -1,9 +1,9 @@
-import { View, TouchableOpacity } from 'react-native';
 import { useRouter } from "expo-router";
-import HomeIcon from '../../assets/nav/home.svg';
+import { TouchableOpacity, View } from 'react-native';
 import AddIcon from '../../assets/nav/add_circle.svg';
 import EventIcon from '../../assets/nav/event.svg';
 import ForumIcon from '../../assets/nav/forum.svg';
+import HomeIcon from '../../assets/nav/home.svg';
 import LoginIcon from '../../assets/nav/login.svg';
 
 type NavBarProps = {
@@ -15,7 +15,7 @@ export default function NavBar({ lugar }: NavBarProps) {
 
   const navItems = [
     { icon: HomeIcon, name: "home", onPress: () => router.push("/") },//home
-    { icon: ForumIcon, name: "forum", onPress: () => console.log("conversas") },
+    { icon: ForumIcon, name: "forum", onPress: () => router.push("/chatScreen") },//tela de chat (Work In Progress)
     { icon: AddIcon, name: "add", onPress: () => router.push("/addTasks") },//criar tarefas
     { icon: EventIcon, name: "event", onPress: () => console.log("event") },
     { icon: LoginIcon, name: "login", onPress: () => console.log("login") },
