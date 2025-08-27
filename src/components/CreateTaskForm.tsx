@@ -10,29 +10,72 @@ import CreateTaskIcon from '../../assets/icons/createTask.svg';
 import DropdownCustom from './DropdownCustom';
 import InputCustom from './InputCustom';
 import Button from './Button';
+import useSetores from '../hooks/useSetores';
+import { Urgencia } from '../types/tarefa';
 
-const setores = [
-  { label: 'T.I', value: 'ti' },
-  { label: 'Financeiro', value: 'fin' },
-  { label: 'Secretaria', value: 'sec' },
-  { label: 'Coordenação', value: 'coor' },
-  { label: 'Orientação de disciplina', value: 'odd' },
+const responsaveis = [
+  { label: 'Fernanda', value: 'fernanda' },
+  { label: 'Carlos', value: 'carlos' },
+  { label: 'Roberto', value: 'roberto' },
+  { label: 'Patrícia', value: 'patricia' },
+  { label: 'Ana', value: 'Ana' },
+  { label: 'Isabelly', value: 'isabelly' },
 ];
-
-const responsaveis = [{ label: 'Fernanda', value: 'fernanda' }];
 
 const urgencias = [
-  { label: 'Urgente', value: 'urgente' },
-  { label: 'Média', value: 'media' },
-  { label: 'Normal', value: 'normal' },
+  { label: 'Urgente', value: 'Urgente' },
+  { label: 'Média', value: 'Media' },
+  { label: 'Normal', value: 'Normal' },
 ];
 
+function stringParaUrgencia(valor: string): Urgencia {
+  switch (valor) {
+    case 'Urgente':
+      return Urgencia.Urgente;
+    case 'Media':
+      return Urgencia.Media;
+    case 'Normal':
+      return Urgencia.Normal;
+    default:
+      return Urgencia.Normal;
+  }
+}
+
 export default function CreateTaskForm() {
-  const [setor, setSetor] = useState<string | number | null>(null);
-  const [urgencia, setUrgencia] = useState<string | number | null>(null);
-  const [responsavel, setResponsavel] = useState<string | number | null>(null);
+  const { adicionarTarefa, setores } = useSetores();
+  const dropdownSetores = setores.map((setor) => ({
+    label: setor.nome,
+    value: setor.id,
+  }));
+
+  const [setorId, setSetorId] = useState<string | null>(null);
+  const [urgencia, setUrgencia] = useState<string | null>(null);
+  const [responsavel, setResponsavel] = useState<string | null>(null);
   const [assunto, setAssunto] = useState<string>('');
   const [descricao, setDescricao] = useState<string>('');
+
+  const handleCriarTarefa = async () => {
+    if (!setorId || !urgencia || !responsavel || !assunto || !descricao) {
+      alert('Preencha todos os campos para criar a tarefa!');
+      return;
+    }
+    //convertendo o valor string pra enum
+    const urgenciaEnum = stringParaUrgencia(urgencia);
+    //adc a tarefa no setor
+    await adicionarTarefa(
+      setorId,
+      assunto,
+      descricao,
+      responsavel,
+      urgenciaEnum
+    );
+    //limpando os inputs/dropdowns
+    setSetorId(null);
+    setUrgencia(null);
+    setResponsavel(null);
+    setAssunto('');
+    setDescricao('');
+  };
 
   return (
     <KeyboardAvoidingView
@@ -51,9 +94,9 @@ export default function CreateTaskForm() {
             <View className="flex-col gap-5 w-full">
               <DropdownCustom
                 label="Setor:"
-                data={setores}
-                value={setor}
-                onChange={setSetor}
+                data={dropdownSetores}
+                value={setorId}
+                onChange={setSetorId}
               />
               <InputCustom
                 label="Assunto:"
@@ -79,10 +122,7 @@ export default function CreateTaskForm() {
                 value={urgencia}
                 onChange={setUrgencia}
               />
-              <Button
-                label="Criar tarefa"
-                onPress={() => console.log(setor, assunto, descricao, urgencia)}
-              />
+              <Button label="Criar tarefa" onPress={handleCriarTarefa} />
             </View>
           </View>
         </View>
