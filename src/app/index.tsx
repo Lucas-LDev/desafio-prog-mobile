@@ -52,7 +52,7 @@ export default function Index() {
 
         {/* input senha */}
         <View className="flex-row items-center w-[311px] h-14 mb-7 rounded-full border border-branco bg-branco/40 px-4 m-1">
-          <LockLogo  />
+          <LockLogo />
           <TextInput
             className="px-2 text-cinza-claro placeholder:text-cinza-claro font-semibold w-full"
             placeholder="Senha"
@@ -65,16 +65,11 @@ export default function Index() {
         {/* botão */}
         <TouchableOpacity
           onPress={Acesso}
-          className="rounded-full overflow-hidden mt-5"
+          className="rounded-full w-[311px] h-[50px] flex items-center justify-center bg-azul-medio border-2 border-azul-claro mt-5"
         >
-          <LinearGradient
-            className="w-[311px] h-[50px] justify-center items-center px-4"
-            colors={['#0168E9', '#014ABF']}
-          >
-            <Text className="text-branco font-bold text-lg text-center">
-              Entrar
-            </Text>
-          </LinearGradient>
+          <Text className="text-branco font-bold text-lg text-center">
+            Entrar
+          </Text>
         </TouchableOpacity>
 
         {/* rodapé */}

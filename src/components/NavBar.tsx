@@ -34,7 +34,7 @@ export default function NavBar({ lugar }: Props) {
   ];
 
   return (
-    <View className="flex-row justify-between items-center rounded-3xl p-6 bg-azul-escuro overflow-hidden mt-auto max-h-[78px]">
+    <View className="flex-row justify-between items-center rounded-t-3xl p-6 bg-azul-escuro overflow-hidden mt-auto max-h-[78px]">
       {navItems.map((item, index) => {
         const IconComponent = item.icon; //aqui é pra ele mudar o icone dinamicamente no map
         const ativo = item.nome === lugar;
